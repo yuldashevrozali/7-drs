@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Car CRUD</title>
+</head>
+
+<body>
+
+    <form id="form" class="create-form">
+        <input type="text" id="name" placeholder="Nomini kiriting...">
+        <input type="text" id="year" placeholder="Yilini kiriting...">
+        <input type="text" id="color" placeholder="Rangini kiritng...">
+        <input type="number" id="price" placeholder="Narxini kiritng...">
+
+        <input type="button" id="add-btn" value="Qo'shish">
+    </form>
+    <div class="wrapper">
+        <form>
+            <select name="name" id="name-select">
+                <option value="Damaz">Damaz</option>
+                <option value="Nexia">Nexia</option>
+                <option value="Matiz">Matiz</option>
+                <option value="Spark">Spark</option>
+            </select>
+            <select name="year" id="year-select">
+                <option value="2011">2022</option>
+                <option value="2022">2021</option>
+                <option value="2022">2020</option>
+                <option value="2022">2019</option>
+                <option value="2022">2018</option>
+                <option value="2022">2017</option>
+                <option value="2019">2015</option>
+                <option value="2018">2014</option>
+                <option value="2018">2013</option>
+                <option value="2018">2012</option>
+                <option value="2018">2011</option>
+                <option value="2018">2010</option>
+                <option value="2018">2009</option>
+            </select>
+
+            <select name="status" id="status-select">
+                <option value="active">Sotilmagan</option>
+                <option value="inactive">Sotilgan</option>
+            </select>
+
+            <div class="search">
+                <input type="search" itemid="search" name="search" placeholder="Qidiruv" id="search">
+            </div>
+        </form>
+        <table id="table">
+            <thead id="thead">
+                <tr>
+                    <th>No</th>
+                    <th>Nomi</th>
+                    <th>Rangi</th>
+                    <th>Narxi</th>
+                    <th>Yili</th>
+                    <th>Holati</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>Nexia</td>
+                    <td>Oq</td>
+                    <td>4000</td>
+                    <td>2016</td>
+                    <td>Sotilgan</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Matiz</td>
+                    <td>Ko'k</td>
+                    <td>3000</td>
+                    <td>2014</td>
+                    <td>Sotilmagan</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
