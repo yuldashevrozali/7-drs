@@ -40,6 +40,7 @@ function volidate() {
 
 addBtn && addBtn.addEventListener('click', function () {
 
+
     try {
 
         volidate();
@@ -55,7 +56,29 @@ addBtn && addBtn.addEventListener('click', function () {
 
         data.push(car);
         form.reset();
-        localStorage.setItem('cars', JSON.stringify(data))
+        localStorage.setItem('cars', JSON.stringify(data));
+
+        function createRow(car, index) {
+            let status;
+            if (car.status == 'active') {
+                status = "Sotilmagan";
+            } else if (car.status == 'inactive') {
+                status = "Sotilgan";
+            }
+        
+            let tr = `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${car.name}</td>
+                    <td>${car.color}</td>
+                    <td>${car.price}</td>
+                    <td>${car.year}</td>
+                    <td>${status}</td>
+                </tr>
+            `;
+        
+            return tr;
+        }
     } catch (error) {
         alert('xatolik yuz berdi')
     }
@@ -94,3 +117,47 @@ document.addEventListener('DOMContentLoaded', function () {
         tbody.innerHTML += fakeDom; 
     }
 });
+
+nameForm.addEventListener('change', function() {
+    let selectedCar = this.value; 
+    let selectedCars = data.filter(el => {
+         return el.name == selectedCar;
+    });
+    createRow(selectedCars)
+    
+})
+
+
+yearFilter.addEventListener('change', function() {
+    let selectedYear = this.value; 
+    let selectedYears = data.filter(yearFilter => {
+         return el.year == selectedYear;
+    });
+    createRow(selectedYears)
+    
+})
+
+
+priceForm.addEventListener('change', function() {
+    let selectedPrice = this.value; 
+    let selectedPrices = data.filter(el => {
+         return el.price == selectedPrice;
+    });
+    createRow(selectedPrices)
+    
+})
+
+colorForm.addEventListener('change', function() {
+    let selectedColor = this.value; 
+    let selectedColors = data.filter(el => {
+         return el.color == selectedColor;
+    });
+    createRow(selectedColors)
+    
+});
+
+window.onload = function() {
+    if (data.length) {
+         createRow(data)
+    }
+}
